@@ -5,7 +5,7 @@ from airflow.operators.empty import EmptyOperator
 
 # Define DAG
 with DAG(
-    dag_id="hello_first_dag",
+    dag_id="hello_second_dag",
     start_date=datetime(2023, 1, 1),   # any past date
     schedule_interval="@daily",        # runs once a day
     catchup=False,                     # don't run for past dates
@@ -19,7 +19,8 @@ with DAG(
 
 
     start = EmptyOperator(task_id="start")
+    middle = EmptyOperator(task_id="middle")
     end = EmptyOperator(task_id="end")
 
-    start>>hello_task>>end
+    start>>hello_task>>middle>>end
 
