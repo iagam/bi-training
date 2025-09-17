@@ -7,7 +7,7 @@ from sqls.etl import insert_customers
 
 # Define DAG
 with DAG(
-    dag_id="hello_second_dag",
+    dag_id="sample_dag",
     start_date=datetime(2023, 1, 1),   # any past date
     schedule_interval="@daily",        # runs once a day
     catchup=False,                     # don't run for past dates
